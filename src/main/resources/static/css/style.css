@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #e5f0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+input, button {
+  width: 92%;
+  padding: 0.7rem;
+  margin: 8px 0;
+  border-radius: 0.7rem;
+}
+
+button {
+  background-color: #4169E1;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#messenger-container {
+  display: none;
+}
+
+#top-bar {
+  background: #0088cc;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-content {
+  display: flex;
+  height: 400px;
+}
+
+#contacts {
+  width: 30%;
+  background: #e6e6e6;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#chat {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #fafafa;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+#login-method-switch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.method-button {
+  width: 40%;
+  cursor: pointer;
+  background-color: #ccc;
+  border: none;
+  text-align: center;
+  padding: 0.7rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.active-method {
+  background-color: #4169E1;
+  color: white;
+}
+
+h2 {
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.logo {
+	--logo-size: calc(var(--index) * 30);
+	width: var(--logo-size);
+	height: var(--logo-size);
+	background-repeat: no-repeat;
+	position: absolute;
+	left: calc(58% - calc(var(--logo-size)) / 2);
+	top: calc(var(--index) * 2);
+	z-index: 1;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Чаты</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h2>Мои чаты</h2>
+    <div class="profile-icon">👤</div>
+  </header>
+
+  <main class="chat-container">
+    <aside class="contacts">
+      <ul id="contact-list">
+        <li>Контакт 1</li>
+        <li>Контакт 2</li>
+        <!-- генерируется через JS -->
+      </ul>
+    </aside>
+
+    <section class="chat-window">
+      <div id="chat-messages">
+        <!-- сообщения -->
+      </div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Введите сообщение" />
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
