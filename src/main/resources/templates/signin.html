@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Clone Wars</title>
+  <script src="../static/js/config.js"></script>
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="logo" style="background-image: url(../static/logo/logo.svg);"></div>
+    <div id="auth-container">
+      <h2>Войти в Союз Студентов</h2>
+      <div id="login-method-switch">
+        <div id="btn-phone" class="method-button active-method" onclick="switchLoginMethod('phone')">Phone</div>
+        <div id="btn-email" class="method-button" onclick="switchLoginMethod('email')">Email</div>
+      </div>
+      <div id="login-fields">
+        <input type="text" id="login-phone" placeholder="Phone Number" />
+      </div>
+      <input type="password" id="login-password" placeholder="Password" />
+      <button onclick="sendLoginCode()">Send Code</button>
+
+      <div id="2fa-section" style="display:none;">
+        <p>Enter the code sent to your email:</p>
+        <input type="text" id="code-input" placeholder="Enter code" />
+        <button onclick="verifyCode()">Verify</button>
+      </div>
+
+      <button id="go-to-register" onclick="showRegisterForm()">Go to Register</button>
+    </div>
+  </div>
+  <script src="../static/js/script.js"></script>
+</body>
+</html>

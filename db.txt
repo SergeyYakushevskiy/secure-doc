@@ -1,0 +1,45 @@
+-- Creating
+CREATE DATABASE messenger_db;
+
+-- Connecting
+\c messenger_db;
+
+-- Creating users table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    surname VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    patronymic VARCHAR(100),
+    phone_number VARCHAR(20) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(64) NOT NULL,
+    public_key TEXT NOT NULL,
+    private_key TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Creating messages table
+CREATE TABLE messages (
+    message_id SERIAL PRIMARY KEY,
+    sender_id INTEGER NOT NULL REFERENCES users(user_id),
+    receiver_id INTEGER NOT NULL REFERENCES users(user_id),
+    content_type VARCHAR(50) NOT NULL,
+    encrypted_content BYTEA NOT NULL,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Creating otps table
+CREATE TABLE otps (
+    otp_id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(user_id),
+    otp_code VARCHAR(6) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NOT NULL
+);
+
+-- Adding indexes
+CREATE INDEX idx_users_phone ON users(phone_number);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_messages_sender ON messages(sender_id);
+CREATE INDEX idx_messages_receiver ON messages(receiver_id);
+CREATE INDEX idx_otps_user ON otps(user_id);
